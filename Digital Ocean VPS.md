@@ -1,8 +1,7 @@
 ##Create Droplet
 
-droplet-hostname
-$5/mo
 Ubuntu 14.04
+
 Enable Backups
 
 ##Reset Root Pass
@@ -13,8 +12,10 @@ ssh root@111.111.111.111
 
 https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-14-04
 
+```
 sudo apt-get update
 sudo apt-get install nginx
+```
 
 (ip should now resolve)
 
