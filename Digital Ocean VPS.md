@@ -65,5 +65,17 @@ Add virtual host file to:
 
 sudo ln -s /etc/nginx/sites-available/website.com.conf /etc/nginx/sites-enabled/website.com.conf
 
+sudo service nginx restart
 
+(optional - hosts file should display)
+
+## MySQL Backup
+
+sudo apt-get install automysqlbackup
+(Postfix -> none)
+
+## Fail2Ban
+
+sudo apt-get install fail2ban
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
