@@ -39,6 +39,23 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 
 sudo apt-get update
 sudo apt-get install phpmyadmin
+(tab to skip prompt asking apache)
+
+sudo ln -s /usr/share/phpmyadmin /usr/share/nginx/html
+
+sudo php5enmod mcrypt
+sudo service php5-fpm restart
+
+(http://server_domain_or_IP/phpmyadmin)
+
+#Change PHPMyAdmin url
+
+cd /usr/share/nginx/html
+sudo mv phpmyadmin moresecurephpmyadmin
+
+# Virtual Hosts
+
+asd
 
 
 
