@@ -1,15 +1,15 @@
-#Create Droplet
+##Create Droplet
 
 droplet-hostname
 $5/mo
 Ubuntu 14.04
 Enable Backups
 
-#Reset Root Pass
+##Reset Root Pass
 
 ssh root@111.111.111.111
 
-#Install Web Server
+##Install Web Server
 
 https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-14-04
 
@@ -33,7 +33,7 @@ Edit file /etc/nginx/sites-available/default with NginX - Default value
 
 sudo service nginx restart
 
-#Install PHPMyAdmin
+##Install PHPMyAdmin
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-14-04-server 
 
@@ -48,14 +48,22 @@ sudo service php5-fpm restart
 
 (http://server_domain_or_IP/phpmyadmin)
 
-#Change PHPMyAdmin url
+##Change PHPMyAdmin url
 
 cd /usr/share/nginx/html
 sudo mv phpmyadmin moresecurephpmyadmin
 
-# Virtual Hosts
+## Virtual Hosts
 
-asd
+sudo mkdir -p /var/www/website.com/public_html
+sudo chown -R www-data:www-data /var/www/example.com/public_html
+sudo chmod 755 /var/www
+
+Add virtual host file to:
+
+/etc/nginx/sites-available/website.com.conf
+
+sudo ln -s /etc/nginx/sites-available/website.com.conf /etc/nginx/sites-enabled/website.com.conf
 
 
 
