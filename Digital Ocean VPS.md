@@ -115,3 +115,11 @@ sudo apt-get -y install git
 git config --global user.name "Your Name"
 git config --global user.email "youremail@domain.com"
 
+## SSH
+```
+ssh-keygen 
+```
+<enter> <enter> <enter>
+(copy pub key to bitbucket)
+
+git clone [path]
