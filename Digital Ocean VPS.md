@@ -36,6 +36,8 @@ sudo vim /etc/php5/fpm/php.ini
 
 (type ESC then :wq ENTER to save)
 
+(optionally update upload_max_filesize and post_max_size)
+
 ```
 sudo service php5-fpm restart
 ```
