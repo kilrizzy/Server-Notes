@@ -123,3 +123,7 @@ ssh-keygen
 (copy pub key to bitbucket)
 
 git clone [path]
+
+## Deploy
+git remote add production ssh://root@111.111.111.111/var/www/website.com/public_html
+git push production
