@@ -110,3 +110,8 @@ sudo apt-get install fail2ban
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
+## Install Git
+sudo apt-get -y install git
+git config --global user.name "Your Name"
+git config --global user.email "youremail@domain.com"
+
