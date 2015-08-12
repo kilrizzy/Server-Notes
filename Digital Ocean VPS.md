@@ -14,19 +14,19 @@ https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysq
 
 ```
 sudo apt-get update
-sudo apt-get install nginx
+sudo apt-get -y install nginx
 ```
 
 (ip should now resolve)
 
 ```
-sudo apt-get install mysql-server
+sudo apt-get -y install mysql-server
 sudo mysql_install_db
 sudo mysql_secure_installation
 ```
 
 ```
-sudo apt-get install php5-fpm php5-mysql
+sudo apt-get -y install php5-fpm php5-mysql
 sudo vim /etc/php5/fpm/php.ini
 ```
 
@@ -54,7 +54,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmy
 
 ```
 sudo apt-get update
-sudo apt-get install phpmyadmin
+sudo apt-get -y install phpmyadmin
 ```
 
 (tab to skip prompt asking apache)
