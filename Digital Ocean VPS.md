@@ -123,6 +123,9 @@ ssh-keygen
 ```
 <enter> <enter> <enter>
 (copy pub key to bitbucket)
+```
+cat ~/.ssh/id_rsa.pub
+```
 
 git clone [path]
 
