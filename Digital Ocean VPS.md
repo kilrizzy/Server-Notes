@@ -44,6 +44,8 @@ sudo service php5-fpm restart
 
 Edit file /etc/nginx/sites-available/default with NginX - Default value
 
+- https://raw.githubusercontent.com/kilrizzy/Server-Notes/master/sites-avaliable/default
+
 ```
 sudo service nginx restart
 ```
