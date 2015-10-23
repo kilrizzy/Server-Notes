@@ -38,6 +38,9 @@ sudo vim /etc/php5/fpm/php.ini
 
 (optionally update upload_max_filesize and post_max_size)
 
+(Note: you may also need to all this line to /etc/nginx/nginx.conf under the "http{" line)
+client_max_body_size 100M;
+
 ```
 sudo service php5-fpm restart
 ```
