@@ -41,10 +41,15 @@ sudo vim /etc/php/7.0/fpm/php.ini
 
 --optional/not req.d anymore? (type "/" and search for "cgi.fix_pathinfo", <insert> uncomment and set to 1)
 Set default upload_max_filesize and post_max_size
+Also you can enable curl by uncommenting
 (type ESC then :wq ENTER to save)
 
 (Note: you may also need to all this line to /etc/nginx/nginx.conf under the "http{" line)
 client_max_body_size 100M;
+
+```
+sudo apt-get install php7.0-curl
+```
 
 ```
 sudo service php7.0-fpm restart
