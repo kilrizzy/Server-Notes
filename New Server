@@ -47,7 +47,7 @@ Set default upload_max_filesize and post_max_size
 client_max_body_size 100M;
 
 ```
-sudo service php5-fpm restart
+sudo service php7.0-fpm restart
 ```
 
 Edit file /etc/nginx/sites-available/default with NginX - Default value
@@ -62,7 +62,7 @@ sudo service nginx restart
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-14-04-server 
 
-[ERROR With PHP7...]
+[ERROR With PHP7...until better way need to install manually]
 
 ```
 sudo apt-get update
