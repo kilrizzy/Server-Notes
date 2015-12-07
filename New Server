@@ -54,6 +54,10 @@ Edit file /etc/nginx/sites-available/default with NginX - Default value
 
 - https://raw.githubusercontent.com/kilrizzy/Server-Notes/master/sites-avaliable/default
 
+NOTE: be sure to change php-fpm 5.0 line to the following:
+
+fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+
 ```
 sudo service nginx restart
 ```
@@ -107,7 +111,7 @@ Add virtual host file to:
 sudo ln -s /etc/nginx/sites-available/website.com.conf /etc/nginx/sites-enabled/website.com.conf
 sudo service nginx restart
 ```
-
+(fix pastcgi_pass: fastcgi_pass unix:/run/php/php7.0-fpm.sock; )
 (optional - hosts file should display website now)
 
 ## MySQL Backup
