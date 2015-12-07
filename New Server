@@ -152,3 +152,54 @@ git clone [path]
 git remote add production ssh://root@111.111.111.111/var/www/website.com/public_html
 git push production
 ```
+
+## Encrypt
+
+Install Let's Encrypt
+
+https://adambard.com/blog/using-letsencrypt-with-nginx/
+
+https://blog.rudeotter.com/lets-encrypt-ssl-certificate-nginx-ubuntu/
+
+```
+sudo service nginx stop
+cd ~
+git clone https://github.com/letsencrypt/letsencrypt
+letsencrypt/letsencrypt-auto
+```
+
+Note if auto doesn't work, nginx still isn't supported. Try:
+
+```
+./letsencrypt-auto --agree-dev-preview --server \
+    https://acme-v01.api.letsencrypt.org/directory auth
+```
+
+Update sites-available/...conf
+
+instead of 80:
+listen 0.0.0.0:443 ssl;
+
+After server_name:
+
+ssl on;
+ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+
+Force ssl:
+
+server{
+    listen 80;
+    server_name example.com www.example.com;
+
+    location / {
+        rewrite ^(.*)$ https://example.com$1 permanent;
+    }
+
+}
+
+Turn back on / restart nginx
+
+```
+sudo service nginx start
+```
