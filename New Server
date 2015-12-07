@@ -58,11 +58,16 @@ Edit file /etc/nginx/sites-available/default with NginX - Default value
 sudo service nginx restart
 ```
 
+```
+sudo php5enmod mcrypt
+sudo service php5-fpm restart
+```
+
 ##Install PHPMyAdmin
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-14-04-server 
 
-[ERROR With PHP7...until better way need to install manually]
+[ERROR With PHP7...until better way need to install manually to /usr/share/nginx/html/(phpminname)]
 
 ```
 sudo apt-get update
@@ -75,11 +80,6 @@ sudo apt-get -y install phpmyadmin
 sudo ln -s /usr/share/phpmyadmin /usr/share/nginx/html
 ```
 
-```
-sudo php5enmod mcrypt
-sudo service php5-fpm restart
-```
-
 (http://server_domain_or_IP/phpmyadmin)
 
 ##Change PHPMyAdmin url
@@ -88,6 +88,8 @@ sudo service php5-fpm restart
 cd /usr/share/nginx/html
 sudo mv phpmyadmin moresecurephpmyadmin
 ```
+
+[ERROR With PHP7...until better way need to install manually to /usr/share/nginx/html/(phpminname)]
 
 ## Virtual Hosts
 
