@@ -209,3 +209,26 @@ Turn back on / restart nginx
 ```
 sudo service nginx start
 ```
+
+## Dropbox Backup
+
+http://www.howopensource.com/2014/09/simple-linux-backup-to-dropbox/
+
+cd ~
+sudo apt-get install curl
+mkdir dropbox
+cd dropbox
+curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dropbox_uploader.sh" -o dropbox_uploader.sh
+chmod 755 dropbox_uploader.sh
+./dropbox_uploader.sh
+(Input app info from: https://www.dropbox.com/developers/apps)
+Add backup bash script to /root/dropbox - https://github.com/kilrizzy/Server-Notes/blob/master/backup.sh
+Edit server name in bash script and make sure file is executable
+
+```
+crontab -e
+ADD: 
+00 00 * * *     /root/dropbox/backup.sh 2>&1 >> /var/log/backup.log
+```
+
+
