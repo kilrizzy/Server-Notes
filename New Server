@@ -224,7 +224,7 @@ chmod 755 dropbox_uploader.sh
 (Input app info from: https://www.dropbox.com/developers/apps)
 Add backup bash script to /root/dropbox - https://github.com/kilrizzy/Server-Notes/blob/master/backup.sh
 Edit server name in bash script and make sure file is executable
-
+Try running bash to test, might need to re-add credentials (./backup.sh)
 ```
 crontab -e
 ADD: 
