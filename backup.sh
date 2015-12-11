@@ -1,6 +1,6 @@
 #!/bin/bash
 TMP_DIR="/tmp/"
-DATE=$(date +"%d-%m-%Y_%H%M")
+DATE=$(date +"%Y-%m-%d_%H%M")
 BKP_FILE="$TMP_DIR/server_backup_$DATE.tar"
 BKP_DIRS="/var/www /etc/automysqlbackup"
 DROPBOX_UPLOADER=/root/dropbox/dropbox_uploader.sh
