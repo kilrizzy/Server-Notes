@@ -231,4 +231,19 @@ ADD:
 00 00 * * *     /root/dropbox/backup.sh 2>&1 >> /var/log/backup.log
 ```
 
+## Deploy
 
+Create new writable blank file at /usr/share/nginx/html/deploy/deploy.log
+Create new file called domain.php with the following:
+
+```
+<?php
+$web_root_dir = '/var/www/domain.com/public_html';
+//
+$git_bin_path = 'git';
+//Navigate to web root
+$pullMessage = shell_exec('cd ' . $web_root_dir . ' && ' . $git_bin_path  . ' pull');
+file_put_contents('deploy.log', date('m/d/Y h:i:s a') . " Pulled: " . $commit_hash . "\n", FILE_APPEND);
+```
+
+Add bitbucket webhook to url: IPADDRESS/deploy/domain.php
