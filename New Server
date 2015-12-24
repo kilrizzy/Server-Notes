@@ -58,11 +58,7 @@ sudo service php7.0-fpm restart
 
 Edit file /etc/nginx/sites-available/default with NginX - Default value
 
-- https://raw.githubusercontent.com/kilrizzy/Server-Notes/master/sites-avaliable/default
-
-NOTE: be sure to change php-fpm 5.0 line to the following:
-
-fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+- https://raw.githubusercontent.com/kilrizzy/Server-Notes/master/sites-avaliable/default-php7
 
 ```
 sudo service nginx restart
