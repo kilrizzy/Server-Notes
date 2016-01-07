@@ -63,11 +63,6 @@ Edit file /etc/nginx/sites-available/default with NginX - Default value
 sudo service nginx restart
 ```
 
-```
-sudo php5enmod mcrypt
-sudo service php5-fpm restart
-```
-
 ##Install PHPMyAdmin
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-14-04-server 
