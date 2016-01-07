@@ -14,13 +14,12 @@ https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysq
 
 ```
 sudo apt-get update
-sudo apt-get -y install nginx
+sudo apt-get -y install nginx mysql-server
 ```
 
 (ip should now resolve)
 
 ```
-sudo apt-get -y install mysql-server
 sudo mysql_install_db
 sudo mysql_secure_installation
 ```
