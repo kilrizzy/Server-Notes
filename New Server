@@ -30,7 +30,7 @@ sudo mysql_secure_installation
 apt-get install python-software-properties
 sudo add-apt-repository ppa:ondrej/php-7.0
 sudo apt-get update
-apt-get install php7.0-fpm php7.0-mysql
+apt-get install php7.0-fpm php7.0-mysql php7.0-curl
 ```
 
 Config:
@@ -46,9 +46,6 @@ Also you can enable curl by uncommenting
 
 (Note: you may also need to all this line to /etc/nginx/nginx.conf under the "http{" line)
 client_max_body_size 100M;
-
-```
-sudo apt-get install php7.0-curl
 ```
 
 ```
