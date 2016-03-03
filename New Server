@@ -138,6 +138,9 @@ ssh-keygen
 cat ~/.ssh/id_rsa.pub
 ```
 
+## Composer
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
 git clone [path]
 
 ## Deploy
