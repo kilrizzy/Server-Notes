@@ -1,35 +1,7 @@
-##Create Droplet
-
-Ubuntu 14.04
-
-Enable Backups
-
-##Reset Root Pass
-
-ssh root@111.111.111.111
-
-##Enable Longer SSH Time
-
-```
-sudo vim /etc/ssh/ssh_config
-```
-
-Add to bottom and :wq to save:
-
-ServerAliveInterval 300
-
 ##Install Web Server
-
-https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-14-04
-
 ```
 sudo apt-get update
 sudo apt-get -y install nginx mysql-server
-```
-
-(ip should now resolve)
-
-```
 sudo mysql_install_db
 sudo mysql_secure_installation
 ```
