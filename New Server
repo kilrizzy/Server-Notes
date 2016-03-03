@@ -13,7 +13,7 @@ sudo mysql_secure_installation
 apt-get install python-software-properties
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
-apt-get install php7.0-fpm php7.0-mysql php7.0-curl
+apt-get install php7.0-fpm php7.0-mysql php7.0-curl php7.0-gd
 ```
 
 Config:
@@ -38,14 +38,45 @@ client_max_body_size 100M;
 sudo service php7.0-fpm restart
 ```
 
-Edit file /etc/nginx/sites-available/default with NginX - Default value
+#Update default nginx config
 
-- https://raw.githubusercontent.com/kilrizzy/Server-Notes/master/sites-avaliable/default-php7
-
-##GD
 ```
-sudo apt-get install php7.0-gd
-sudo service nginx restart
+sudo vim /etc/nginx/sites-available/default
+```
+
+Delete all existing lines by typing:
+
+```
+:1,$d
+```
+
+And paste in the following:
+
+```
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+    root /usr/share/nginx/html;
+    index index.php index.html index.htm;
+    server_name server_domain_name_or_IP;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+        client_max_body_size 100m;
+    }
+}
 ```
 
 ##Install PHPMyAdmin
