@@ -25,7 +25,7 @@ sudo vim /etc/php/7.0/fpm/php.ini
 Set default upload_max_filesize and post_max_size
 
 ```
-sudo /etc/nginx/nginx.conf
+sudo vim /etc/nginx/nginx.conf
 ```
 
 (Add to /etc/nginx/nginx.conf under the "http{" line):
