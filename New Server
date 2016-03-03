@@ -34,10 +34,6 @@ sudo vim /etc/nginx/nginx.conf
 client_max_body_size 100M;
 ```
 
-```
-sudo service php7.0-fpm restart
-```
-
 #Update default nginx config
 
 ```
@@ -77,6 +73,11 @@ server {
         client_max_body_size 100m;
     }
 }
+```
+
+```
+sudo service php7.0-fpm restart
+sudo service nginx restart
 ```
 
 ##Install PHPMyAdmin
