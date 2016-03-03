@@ -90,41 +90,8 @@ unzip /usr/share/nginx/html/phpMyAdmin-4.5.4.1-all-languages.zip -d /usr/share/n
 mv /usr/share/nginx/html/phpMyAdmin-4.5.4.1-all-languages /usr/share/nginx/html/customphpmin
 rm /usr/share/nginx/html/phpMyAdmin-4.5.4.1-all-languages.zip
 
----
-mv phpMyAdmin-4.5.4.1-all-languages phpmyadmin
-Change permissions:
-
-chmod -R 0755 phpmyadmin
-
-##Install PHPMyAdmin
-
-https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-14-04-server 
-
-[ERROR With PHP7...until better way need to install manually to /usr/share/nginx/html/(phpminname)]
-
-```
-sudo apt-get update
-sudo apt-get -y install phpmyadmin
-```
-
-(tab to skip prompt asking apache)
-
-```
-sudo ln -s /usr/share/phpmyadmin /usr/share/nginx/html
-```
-
-(http://server_domain_or_IP/phpmyadmin)
-
-##Change PHPMyAdmin url
-
-```
-cd /usr/share/nginx/html
-sudo mv phpmyadmin moresecurephpmyadmin
-```
-
-[ERROR With PHP7...until better way need to install manually to /usr/share/nginx/html/(phpminname)]
-
 ## Virtual Hosts
+(use NGINX-GENERATOR)
 
 ```
 sudo mkdir -p /var/www/website.com/public_html
@@ -133,15 +100,12 @@ sudo chmod 755 /var/www
 ```
 
 Add virtual host file to:
-
 /etc/nginx/sites-available/website.com.conf
 
 ```
 sudo ln -s /etc/nginx/sites-available/website.com.conf /etc/nginx/sites-enabled/website.com.conf
 sudo service nginx restart
 ```
-(fix pastcgi_pass: fastcgi_pass unix:/run/php/php7.0-fpm.sock; )
-(optional - hosts file should display website now)
 
 ## MySQL Backup
 
