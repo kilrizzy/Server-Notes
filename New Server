@@ -176,7 +176,7 @@ Paste in (change domain):
 Test with:
 
 ```
-bash /root/scripts/letsencrypt-autorenew.sh 2>&1 >> /var/log/letsencryp-autorenew.log
+bash /root/scripts/letsencrypt-autorenew.sh 2>&1 >> /var/log/letsencrypt-autorenew.log
 ```
 
 Cron:
@@ -192,9 +192,6 @@ crontab -e
 
 
 Install Let's Encrypt
-https://adambard.com/blog/using-letsencrypt-with-nginx/
-
-https://blog.rudeotter.com/lets-encrypt-ssl-certificate-nginx-ubuntu/
 
 ```
 sudo service nginx stop
