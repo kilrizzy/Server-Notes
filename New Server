@@ -173,10 +173,10 @@ Paste in (change domain):
 /opt/letsencrypt/letsencrypt-auto certonly -a webroot --agree-tos --renew-by-default --webroot-path=/var/www/DOMAIN.com/public_html -d DOMAIN.com
 ```
 
-Test with:
+Test with (run once to fill in email):
 
 ```
-bash /root/scripts/letsencrypt-autorenew.sh 2>&1 >> /var/log/letsencrypt-autorenew.log
+bash /root/scripts/letsencrypt-autorenew.sh
 ```
 
 Cron:
