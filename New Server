@@ -149,10 +149,49 @@ git remote add production ssh://root@111.111.111.111/var/www/website.com/public_
 git push production
 ```
 
-## Encrypt
+## Let's Encrypt
+
+```
+sudo apt-get update
+sudo apt-get -y install git bc
+sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
+```
+
+Create bash file that will run
+
+```
+mkdir /root/scripts
+touch /root/scripts/letsencrypt-autorenew.sh
+sudo vim /root/scripts/letsencrypt-autorenew.sh
+```
+
+Paste in (change domain):
+
+```
+#!/bin/bash
+#Run commands needed to update certs for each website
+/opt/letsencrypt/letsencrypt-auto certonly -a webroot --agree-tos --renew-by-default --webroot-path=/var/www/DOMAIN.com/public_html -d DOMAIN.com
+```
+
+Test with:
+
+```
+bash /root/scripts/letsencrypt-autorenew.sh 2>&1 >> /var/log/letsencryp-autorenew.log
+```
+
+Cron:
+
+```
+crontab -e
+30 2  * * *     bash /root/scripts/letsencrypt-autorenew.sh 2>&1 >> /var/log/letsencryp-autorenew.log
+```
+
+-----------------
+
+
+
 
 Install Let's Encrypt
-
 https://adambard.com/blog/using-letsencrypt-with-nginx/
 
 https://blog.rudeotter.com/lets-encrypt-ssl-certificate-nginx-ubuntu/
