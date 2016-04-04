@@ -173,68 +173,53 @@ Paste in (change domain):
 /opt/letsencrypt/letsencrypt-auto certonly -a webroot --agree-tos --renew-by-default --webroot-path=/var/www/DOMAIN.com/public_html -d DOMAIN.com
 ```
 
+Clone server block in site config, change Listen line to:
+
+```
+listen 0.0.0.0:443 ssl;
+```
+
+sudo service nginx restart
+
 Test with (run once to fill in email):
 
 ```
 bash /root/scripts/letsencrypt-autorenew.sh
 ```
 
-Cron:
+On success, add lines to SSL server config block (below server name):
 
 ```
-crontab -e
-30 2  * * *     bash /root/scripts/letsencrypt-autorenew.sh 2>&1 >> /var/log/letsencryp-autorenew.log
-```
-
------------------
-
-
-
-
-Install Let's Encrypt
-
-```
-sudo service nginx stop
-cd ~
-git clone https://github.com/letsencrypt/letsencrypt
-letsencrypt/letsencrypt-auto
-```
-
-Note if auto doesn't work, nginx still isn't supported. Try:
-
-```
-./letsencrypt-auto --agree-dev-preview --server \
-    https://acme-v01.api.letsencrypt.org/directory auth
-```
-
-Update sites-available/...conf
-
-instead of 80:
-listen 0.0.0.0:443 ssl;
-
-After server_name:
-
 ssl on;
 ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
 ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+```
 
-Force ssl:
+Add to Cron:
 
+```
+crontab -e
+30 2  * * *     bash /root/scripts/letsencrypt-autorenew.sh 2>&1 >> /var/log/letsencrypt-autorenew.log
+```
+
+Force SSL:
+
+```
 server{
     listen 80;
     server_name example.com www.example.com;
-
+    
+    location ^~ /.well-known/ {
+        allow all;
+    }
+        
     location / {
         rewrite ^(.*)$ https://example.com$1 permanent;
     }
 
 }
-
-Turn back on / restart nginx
-
 ```
-sudo service nginx start
-```
+
 
 ## Dropbox Backup
 
@@ -259,17 +244,4 @@ ADD:
 
 ## Deploy
 
-Create new writable blank file at /usr/share/nginx/html/deploy/deploy.log
-Create new file called domain.php with the following:
-
-```
-<?php
-$web_root_dir = '/var/www/domain.com/public_html';
-//
-$git_bin_path = 'git';
-//Navigate to web root
-$pullMessage = shell_exec('cd ' . $web_root_dir . ' && ' . $git_bin_path  . ' pull');
-file_put_contents('deploy.log', date('m/d/Y h:i:s a') . " Pulled: " . $commit_hash . "\n", FILE_APPEND);
-```
-
-Add bitbucket webhook to url: IPADDRESS/deploy/domain.php
+update info
