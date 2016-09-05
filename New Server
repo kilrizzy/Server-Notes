@@ -171,6 +171,7 @@ Paste in (change domain):
 #!/bin/bash
 #Run commands needed to update certs for each website
 /opt/letsencrypt/letsencrypt-auto certonly -a webroot --agree-tos --renew-by-default --webroot-path=/var/www/DOMAIN.com/public_html -d DOMAIN.com
+service nginx restart
 ```
 
 Clone server block in site config, change Listen line to:
